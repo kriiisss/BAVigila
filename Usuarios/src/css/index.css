@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(55, 154, 192) !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: rgb(254, 211, 6);
+}
+
+.text{
+    justify-content: center;
+    align-items: center;
+    display: table;
+    text-align: center;
+}
+
+.text p{
+    font-size: 2.3vh;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 1vh;
+}
+
+.a{
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo a img{
+    height: 7.5vh;
+    margin-left: 4vw;
+}
+
+nav{
+    height: 4vh;
+    background-color: rgb(242, 235, 154);
+    justify-content: center;
+    display: flex;
+    font-weight: 100;
+    align-items: center;
+}
+
+nav p{
+    color: black; 
+    font-size: 2.3vh;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.accordion{
+    width: 30%;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.accordion .accordion-item-report{
+    margin-top: 2.5vh;
+}
+
+.accordion .accordion-item-report .accordion-button{
+    background: #367f9b;
+    color: #ffffff;
+    height: 5vh;
+    text-align: center; 
+}
+
+.accordion .accordion-item-report .accordion-body{
+    background: rgb(55, 154, 192);
+    color: #ffffff;
+}
+
+.accordion .accordion-item-report .accordion-body label{
+    color: #ffffff;
+}
+
+.accordion .accordion-item-report .accordion-button::after{
+    background-image: none;
+}
+
+.accordion .accordion-item-emergency .accordion-button{
+    background: #367f9b;
+    color: #000000;
+}
+
+.accordion .accordion-item-emergency .accordion-button::after{
+    background-image: none;
+}
+
+.accordion .accordion-item-emergency .accordion-button{
+    background: red;
+    background-image: none;
+    margin-top: 2.5vh;
+    height: 5vh;
+    color: #ffffff;
+}
