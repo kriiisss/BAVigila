@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css";
+    <script src="jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <div class="fondo-oscuro" id="fondo-oscuro"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c787a5b3f4.js" crossorigin="anonymous"></script>
+
+    <button class="abridor" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" style="margin-left: -77px;">Reporte Incidencias</button>
+
+    <!-- Acá empieza el sidebar -->
+    
+  <div class="container-fluid" id="x">
+    <!-- <a class="navbar-brand" href="#">Offcanvas dark navbar</a> -->
+
+    <form action="formulario.php" method="POST" id="sectionForm">
+
+    <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" style="width: 700px;">
+      <div class="">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">FORMULARIO DE REPORTE DE INCIDENCIAS EN LA VÍA PÚBLICA</h5>
+        <h6 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Ciudad Autonoma de Buenos Aires</h6>
+        <div class="ba"></div>
+      </div>
+      <br>
+
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+
+          <li class="nav-item">
+            <a aria-current="page" style="color: white;">Ubicación</a>
+            <h6></h6>
+            <input type="text" class="text" name="ubicacion" id="ubicacion" placeholder="Ej: Fraga 2282 / Juan B. Justo y San Martín" required>
+            <button class="b" type="button" ><i class="fa-solid fa-location-dot" style="color: #ff0000;"></i></button>
+          </li>
+          <br>
+
+          <li class="modalidad">
+            <a style="color: white;">Modalidad</a>
+            <h6></h6>
+            <input type="checkbox" value="Arma de Fuego" name="opc[]" id="check" class="check">
+            <label for="caf">Arma de Fuego</label>
+            <input type="checkbox" value="Arma Blanca" name="opc[]" id="check" class="check">
+            <label for="cab">Arma Blanca</label>
+            <input type="checkbox" value="Otro" name="opc[]" id="check" class="check">
+            <label for="co">Otro</label>
+            <input type="checkbox" value="Ninguno" name="opc[]" id="check" class="check">
+            <label for="cn">Ninguno</label>
+          </li>
+          <div class="err">Seleccione al menos una modalidad</div>
+
+          <li class="nav-item">
+            <a style="color: white;">Cantidad de Asaltantes</a>
+            <h6></h6>
+            <input type="number" class="number" name="cantasa" id="asaltantes" min="0" max="15" required>
+          </li>
+          <br>
+
+          <li class="nav-item">
+            <a style="color: white;">Cantidad de Afectados</a>
+            <h6></h6>
+            <input type="number" class="number" name="icaf" id="afectados" min="0" max="50" required>
+          </li>
+          <button type="button" class="btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" style="margin-left: 595px;">Reporte Incidencias</button>
+
+          <li class="nav-item" name="ambulancia">
+            <a style="color: white;">Requiere Ambulacia?</a>
+            <h6></h6>
+            <input type="radio" name="ambulancia" id="ambulancia" value="1" required>
+            <label for="si">Sí</label>
+            <input type="radio" name="ambulancia" id="ambulancia" value="0" required>
+            <label for="no">No</label>
+          </li>
+          <br>
+
+          <li class="nav-item" name="bomberos">
+            <a style="color: white;">Requiere Bomberos?</a>
+            <h6></h6>
+            <input type="radio" name="bomberos" id="bomberos" value="1" required>
+            <label for="si">Sí</label>
+            <input type="radio" name="bomberos" id="bomberos" value="0" required>
+            <label for="no">No</label>
+          </li>
+          <br>
+
+          <li class="nav-item">
+            <a style="color: white;">Objeto/s Sustraido/s</a>
+            <h6></h6>
+            <input type="text" class="text" name="objsus" id="objetos" placeholder="Ej: Mochila / Telefono celular / Billetera" required>
+          </li>
+          <br>
+
+          <li class="nav-item">
+            <a style="color: white;">Información Adicional</a>
+            <h6></h6>
+            <input type="text" class="text" name="infoadi" id="info" placeholder="Ej: Vestimenta de los asaltantes">
+          </li>
+          <br></br>
+
+          <li class="nav-item">
+            <button type="submit" class="enviar" id="enviar">Enviar Reporte</button>
+          </li>
+          <br>
+
+        </ul>
+
+        <div class="mostrarDatos" id="mostrarDatos">
+    <h2>Datos del incidente</h2>
+    <div class="datos">
+      <div class="ub" style="display: flex;gap: 5%;">
+        <p>Ubicación:</p>
+        <p id="ubi"></p>
+        <script>
+          $("#ubicacion").on("keyup change input",function(){
+            $("#ubi").html($(this).val());
+          });
+        </script>
+      </div>
+
+      <div class="mo" style="display: flex;gap: 5%;">
+        <p>Modalidad del incidente:</p>
+        <p id="mod"></p>
+        <script>
+          $(document).ready(function(){  
+            $('input[type="checkbox"]').click(function() {
+              var sel = $('input[type=checkbox]:checked').map(function(_, el) {
+                return $(el).val();
+              }).get();
+              $("#mod").html(sel.join(", "));
+            })
+          });
+        </script>  
+
+      </div>
+
+              <div class="as" style="display: flex;gap: 5%;">
+                <p>Cantidad de asaltantes:</p>
+                <p id="asa">
+                <script>
+                  $("#asaltantes").on("keyup change input",function(){
+                    $("#asa").html($(this).val());
+                  });
+                </script>
+              </div>
+
+              <div class="af" style="display: flex;gap: 5%;">
+                <p>Cantidad de afectados:</p>
+                <p id="afe"></p>
+                <script>
+                  $("#afectados").on("keyup change input",function(){
+                    $("#afe").html($(this).val());
+                  });
+                </script>
+              </div>
+
+              <div class="am" style="display: flex;gap: 5%;">
+                <p>¿Requiere ambulancia?</p>
+                <p id="amb"></p>
+                <script>
+                  $(document).ready(function() {
+                    $('input:radio[name=ambulancia]').change(function() {
+                      if (this.value == '1') {
+                        $("#amb").html("Si");
+                      }
+                      else if (this.value == '0') {
+                        $("#amb").html("No");
+                      }
+                    });
+                  });
+                </script>
+              </div>
+              
+              <div class="bo" style="display: flex;gap: 5%;">
+                <p>¿Requiere bomberos?</p>
+                <p id="bom"></p>
+                <script>
+                  $(document).ready(function() {
+                    $('input:radio[name=bomberos]').change(function() {
+                      if (this.value == '1') {
+                        $("#bom").html("Si");
+                      }
+                      else if (this.value == '0') {
+                        $("#bom").html("No");
+                      }
+                    });
+                  });
+                </script>
+              </div>    
+              
+              <div class="ob" style="display: flex;gap: 5%;">
+                <p>Objetos sustraídos:</p>
+                <p id="obj"></p>
+                <script>
+                  $("#objetos").on("keyup change input",function(){
+                    $("#obj").html($(this).val());
+                  });
+                </script>
+              </div>
+              
+              <div class="ia" style="display: flex;gap: 5%;">
+                <p>Información adicional:</p>
+                <p id="inf"></p>
+                <script>
+                  $("#info").on("keyup change input",function(){
+                    $("#inf").html($(this).val());
+                  });
+                </script>
+              </div>
+            </div>
+
+            <div class="botones">
+              <a href="javascript:cerrarDatos()" id="cancelar">Cancelar</a>
+              <button id="enviarDatos">Enviar datos</button>
+            </div>            
+          </div>  
+    </div>
+    
+    
+  </form>
+  
+  </div>    
+  
+  <script src="comprobarCheckbox.js"></script>
+
+  <script>
+    function mostrarDatos(){
+      document.getElementById("container").style.display="block";
+      document.getElementById("fondo-oscuro").style.position="fixed";
+      document.getElementById("fondo-oscuro").style.padding="0";
+      document.getElementById("fondo-oscuro").style.margin="0";
+      document.getElementById("fondo-oscuro").style.zIndex="3";
+      document.getElementById("fondo-oscuro").style.top="0";
+      document.getElementById("fondo-oscuro").style.left="0";
+      document.getElementById("fondo-oscuro").style.width="100%";
+      document.getElementById("fondo-oscuro").style.height="100%";
+      document.getElementById("fondo-oscuro").style.background="rgba(255,255,255,0.5)";
+    }
+    function cerrarDatos(){
+        document.getElementById("container").style.display="none";
+        document.getElementById("x").style.pointerEvents = "auto";
+        document.getElementById("container").style.pointerEvents = "auto";
+        document.getElementById("mapa").style.pointerEvents = "auto";
+      }
+  </script>
+
+  <script>
+    $('#sectionForm').submit(function(e) {
+      if (e.originalEvent && e.originalEvent.isTrusted) //check if user clicked submit button or javascript clicked it
+        e.preventDefault(); //prevent submitting the form if user clicked
+
+      document.getElementById("container").style.display="block";
+      document.getElementById("x").style.pointerEvents = "none";
+      document.getElementById("container").style.pointerEvents = "auto";
+      document.getElementById("mapa").style.pointerEvents = "none";
+    });
+
+    $('#enviarDatos').click(function() {
+      $('#sectionForm').submit();
+    });
+  </script>
+
+  <script>
+    
+  </script>
+  
+</body>
+</html>
