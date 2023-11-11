@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body{
+    background: rgb(55, 154, 192) !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: rgb(254, 211, 6);
+}
+
+.text{
+    justify-content: center;
+    align-items: center;
+    display: table;
+    text-align: center;
+}
+
+.text p{
+    font-size: 2.3vh;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 1vh;
+}
+
+.a{
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo a img{
+    height: 7.5vh;
+    margin-left: 4vw;
+}
+
+nav{
+    height: 4vh;
+    background-color: rgb(242, 235, 154);
+    justify-content: center;
+    display: flex;
+    font-weight: 100;
+    align-items: center;
+}
+
+nav p{
+    color: black; 
+    font-size: 2.3vh;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.accordion{
+    width: 30%;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.accordion .accordion-item-report{
+    margin-top: 2.5vh;
+}
+
+.accordion .accordion-item-report .accordion-button{
+    background: #367f9b;
+    color: #ffffff;
+    height: 5vh;
+    text-align: center; 
+}
+
+.accordion .accordion-item-report .accordion-body{
+    background: rgb(55, 154, 192);
+    color: #ffffff;
+}
+
+.accordion .accordion-item-report .accordion-body label{
+    color: #ffffff;
+}
+
+.accordion .accordion-item-report .accordion-button::after{
+    background-image: none;
+}
+
+.accordion .accordion-item-emergency .accordion-button{
+    background: #367f9b;
+    color: #000000;
+}
+
+.accordion .accordion-item-emergency .accordion-button::after{
+    background-image: none;
+}
+
+.accordion .accordion-item-emergency .accordion-button{
+    background: red;
+    background-image: none;
+    margin-top: 2.5vh;
+    height: 5vh;
+    color: #ffffff;
+}
+
+.ambulancia{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hurto, .obj, .cant-afec, .info-adi, .cant-asa, .ambu{
+    margin-top: 20px;
+}
+
+form .ubi-i, .obj-i, .cant-afec-asa input{
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    outline: 0;
+    padding: 0 5px;
+}
+
+form .cant-afec-asa{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.afectados, .asaltantes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+form .cant-afec-asa label{
+    font-size: 0.9rem;
+}
+
+form .cant-afec-asa .afectados input, .asaltantes input{
+    width: 25%;
+    height: 45px;
+    font-size: 1.3rem;
+}
+
+form textarea{
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    outline: 0;
+}
+
+form .btn{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#collapseOne .accordion-body form .btn{
+    background-color: #fed306;
+}
+
+.mostrarDatos{
+    position: absolute;
+    width: 90%;
+    height: 550px;
+    background-color: rgb(55, 154, 192);
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    display:none;
+    color: white;
+    padding: 10px 50px 10px 50px;
+    border-left: 5px solid rgb(255, 255, 255);
+    border-right: 5px solid rgb(255, 255, 255);
+    border-top: 5px solid #fed306;
+    border-bottom: 5px solid #fed306;
+}
+
+.mostrarDatos h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+    font-weight: 500;
+}
+
+.datos{
+    margin-top: 15%;
+    font-weight: 500;
+}
+
+.botones{
+    margin-top: 15%;
+    display:flex;
+    justify-content: center;
+    gap: 10%;
+    height: 7%;
+}
+
+#cancelar, #enviarDatos{
+    width: 45%;
+    background-color: rgb(242, 211, 6);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (max-width: 1000px){
+    
+    .accordion{
+        width: 50%;
+        height: 60vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    header{
+        width: 100%;
+        height: 8vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background-color: rgb(254, 211, 6);
+    }
+    
+    .text{
+        justify-content: center;
+        align-items: center;
+        display: table;
+        text-align: center;
+    }
+    
+    .text p{
+        font-size: 1.7vh;
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 1vh;
+    }
+
+    .mostrarDatos{
+        width: 100%;
+        height: 550px;
+    }
+}
+
+@media (max-width: 800px){
+    
+    .accordion{
+        width: 90%;
+        height: 60vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    header{
+        width: 100%;
+        height: 8vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background-color: rgb(254, 211, 6);
+    }
+    
+    .text{
+        justify-content: center;
+        align-items: center;
+        display: table;
+        text-align: center;
+    }
+    
+    .text p{
+        font-size: 1.7vh;
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 1vh;
+    }
+
+    .mostrarDatos{
+        width: 100%;
+        height: 550px;
+    }
+}
