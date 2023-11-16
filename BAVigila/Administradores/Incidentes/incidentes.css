@@ -1,0 +1,85 @@
+/* @font-face, aquí adentro introducimos el nombre de la fuente y con src url ponemos la url de donde se encuentra el archivo de la fuente */
+@font-face {
+    font-family: "Conduit";
+    src: url("../font/Conduit.ttf");
+}
+
+/* Esto es para que en la págnia no se vean los bordecitos blancos de los costados ni los de arriba y abajo */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Conduit";
+}
+
+header{
+    height: 10rem;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    width: 100%;
+    gap: 9rem;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+body{
+    background-color: rgb(24, 24, 24);
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    width: 110px;
+}
+
+table{
+    width: 90%;
+    border-collapse: collapse;
+    overflow-y: scroll;
+}
+
+table td, table th{
+    padding: 12px 15px;
+    border: 1px solid white;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+i{
+    background-color: white;
+    color: white;
+    text-decoration: none;
+    font-size: 100px;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 1em;
+}
+
+button{
+    padding: 20px 70px 20px 70px;
+    background-color: white;
+    font-size: 25px;
+    color: black;
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.offcanvas-body{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    font-size: x-large;
+}

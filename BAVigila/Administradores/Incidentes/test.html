@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Layers Control Tutorial - Leaflet</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" integrity="sha512-6MR6YR7S/QII0g5ImryX/JzGJeKgS7+qgXJbzpdE7QKkvebn17AesLyvP7i4BJh21mX4S83xRMTIkN2ADyvZgg==" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" integrity="sha512-DnFgXhdBGEOJQvqP4ewzTo6hOxG6fUdY8DEp0xEyurk8a4bcxYxf7D72jxMO6F8k/97ZBfwG3vsk0PDRPy+n+A==" crossorigin=""/>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .gray-background {
+            background-color: #ccc;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border: 5px solid gray !important;
+        }
+
+        .leaflet-popup-content {
+            font-family: 'Bahnschrift', Arial, sans-serif; /* Cambio de la fuente del popup */
+        }
+
+        .white-background {
+            background-color: #fff !important;
+        }
+    </style>                                                                                                                                                                                                                           
+
+</head>
+<body>
+
+<div id='map'></div>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js" integrity="sha512-YQO+jgfp19K9U2j63m93pncS/h1JcCR5p0aXAN7dURxtUgED6jw/+GgCtu+e2U03k1bZTusSNUrX5bS8Kil2aQ==" crossorigin=""></script>
+
+<script>
+    var map = L.map('map').setView([-34.6037, -58.3816], 13); // Coordenadas del mapa inicial
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+		minZoom: 12,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var bounds = L.latLngBounds(
+        L.latLng(-34.538238, -58.538246), // northwest
+        L.latLng(-34.540783, -58.342209) // northeast
+    ).extend(
+        L.latLng(-34.687428, -58.532753) // southeast
+    ).extend(
+        L.latLng(-34.690533, -58.344612) // southwest
+    );
+
+    map.setMaxBounds(bounds);
+    map.on('drag', function () {
+        map.panInsideBounds(bounds, { animate: false });
+    });
+
+    var marker = L.marker([-34.586628, -58.451986]).addTo(map);
+	
+	marker.bindPopup("<form class='white-background'>Arma Blanca<br> 2 Asaltantes<br>1 Afectado<br>Mochila Sustraida<br>No requiere ambulancia<br>No requiere bomberos<form>").openPopup();
+
+	var popup = L.popup();
+
+	function onMapClick(e) {
+	    var newMarker = L.marker(e.latlng).addTo(map);
+	    newMarker.bindPopup("<form class='white-background'>Arma Blanca<br> 2 Asaltantes<br>1 Afectado<br>Mochila Sustraida<br>No requiere ambulancia<br>No requiere bomberos<form>");
+	    newMarker.on('contextmenu', function(e) { // Agregar un controlador para el evento de clic derecho (contextmenu)
+	        map.removeLayer(newMarker); // Eliminar el marcador cuando se hace clic derecho sobre él
+	    });
+	}
+
+	map.on('click', onMapClick);
+    //map.scrollWheelZoom.disable(); // Deshabilitar el zoom con la rueda del mouse
+
+    map.on('focus', function () {
+        map.scrollWheelZoom.enable(); // Habilitar el zoom con la rueda del mouse cuando el mapa tiene el enfoque
+    });
+
+   // map.on('blur', function () {
+     //   map.scrollWheelZoom.disable(); // Deshabilitar el zoom con la rueda del mouse cuando el mapa pierde el enfoque
+    //});
+
+ //   map.on('zoomend', function () {
+   //     var currentZoom = map.getZoom();
+     //   if (currentZoom >= 18) {
+       //     map.setMaxBounds(null); // Eliminar los límites máximos a partir del nivel de zoom 18
+        //} else {
+          //  map.setMaxBounds(bounds); // Restablecer los límites máximos si el nivel de zoom es inferior a 18
+        //}
+    //});
+
+    
+</script>
+
+</body>
+</html>

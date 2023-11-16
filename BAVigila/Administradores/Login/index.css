@@ -1,0 +1,110 @@
+/* @font-face, aquí adentro introducimos el nombre de la fuente y con src url ponemos la url de donde se encuentra el archivo de la fuente */
+@font-face {
+    font-family: "Conduit";
+    src: url("../font/Conduit.ttf");
+}
+
+/* Esto es para que en la págnia no se vean los bordecitos blancos de los costados ni los de arriba y abajo */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Conduit";
+}
+
+header{
+    height: 10rem;
+    justify-items: center;
+    display: grid;
+    align-items: center;
+}
+
+body{
+    background-color: rgb(24, 24, 24);
+}
+
+header .logo img{
+    height: 180px;
+}
+
+h1{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 6rem;
+}
+
+/* Login (es un div), esto es el cuadrado gris central de la página, donde con justify-content y display flex hacen que se distribullan los textos equitativamente, con height y width asignamos el alto y ancho, con backgroun-color asignamos el color gris, padding es el espacio que hay entre los textos, en este caso de 35 pixeles, margin top nos permite establecer una distancia desde el tope del div, en este caso de 90 pixeles, con border le agregamos un borde al div, con border-radius agregamos un redondeo a las esquinas del div */
+.login{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+}
+
+/* Form, aquí le agregamos un color blanco a los textos con el color, ubicamos los textos con justify-content y display, con font-size le asignamos el tamaño de la letra, en este caso de 20 pixeles, con font-family agregamos la fuente a los textos, en este caso es una que descargamos pero no encontramos la forma de colocarla en la página */
+form{
+    color: white;
+    display: block;
+}
+
+i{
+    margin-left: 1.5rem;
+}
+
+/* Input input, aquí le asignamos el alto y ancho de los input de tipo text y password */
+#usuario, #password{
+    background-color: rgb(24, 24, 24);
+    color: rgb(255, 255, 255);
+    font-size: 1.25rem;
+    height: 56px;
+    width: 327px;
+    outline: 0;
+    border: none;
+    margin-left: 1rem;
+    border-radius: 30px;
+}
+
+.usuario{
+    border: 2px solid white;
+    height: 60px;
+    width: 400px;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.contrasenia{
+    border: 2px solid white;
+    height: 60px;
+    width: 400px;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.login .ingresar{
+    background-color: white;
+    font-size: 25px;
+    color: black;
+    height: 60px;
+    width: 400px;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* .login .reccon{
+    background-color: white;
+    font-size: 25px;
+    color: black;
+    height: 60px;
+    width: 400px;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+} */
